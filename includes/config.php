@@ -2,8 +2,8 @@
 
 // __DIR__ represents current folder (includes)
 require_once __DIR__ . '/Applications.php';
-require_once __DIR__ . '/DTO/UserDTO.php';
-require_once __DIR__ . '/DAO/UserDAO.php';
+require_once __DIR__ . '/DTO/userDTO.php';
+require_once __DIR__ . '/DAO/userDAO.php';
 
 $dbConfig = [
     'host' => 'localhost',
