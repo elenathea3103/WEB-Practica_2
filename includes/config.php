@@ -4,12 +4,14 @@
 require_once __DIR__ . '/Applications.php';
 require_once __DIR__ . '/DTO/UserDTO.php';
 require_once __DIR__ . '/DAO/UserDAO.php';
+require_once __DIR__ . '/DTO/OrderDTO.php';
+require_once __DIR__ . '/DAO/OrderDAO.php';
 
 $dbConfig = [
     'host' => 'localhost',
     'user' => 'root',
     'pass' => '',
-    'bd'   => 'bistro_fdi'
+    'bd' => 'bistro_fdi'
 ];
 
 $app = Applications::getInstance();
