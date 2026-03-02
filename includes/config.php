@@ -6,6 +6,7 @@ require_once __DIR__ . '/DTO/userDTO.php';
 require_once __DIR__ . '/DAO/userDAO.php';
 require_once __DIR__ . '/DTO/OrderDTO.php';
 require_once __DIR__ . '/DAO/OrderDAO.php';
+require_once __DIR__ . '/DTO/OrderItemDTO.php';
 
 $dbConfig = [
     'host' => 'localhost',
