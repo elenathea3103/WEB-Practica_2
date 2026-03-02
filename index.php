@@ -86,18 +86,23 @@ $avatar = $_SESSION['avatar'] ?: 'assets/avatars/default.jpeg';
         </p>
     </div>
     <?php endif; ?>
-
-    <?php if ($role === 'manager'): ?>
-    <div class="section-box manager-box">
-        <h3>Manager Administration</h3>
-        <p style="padding-left: 20px;">
-            <a href="admin_users.php">Manage User Roles</a>
-            <a href="manage_categories.php">Manage Categories</a>
-            <a href="manage_products.php">Manage Products</a>
-            <a href="view_all_orders.php">View All Pending Orders</a>
-        </p>
-    </div>
-    <?php endif; ?>
+    
+    <?php if ($role === 'manager' || $role === 'admin'): ?>
+<div class="section-box manager-box">
+    <h3>Manager Administration</h3>
+    <p style="padding-left: 20px;">
+        <a href="admin_users.php">Manage User Roles</a>
+        <a href="manage_categories.php">Manage Categories</a>
+        <a href="product_list.php" >Product Management</a>
+        <a href="view_all_orders.php">View All Pending Orders</a>
+    </p>
+</div>
+<?php endif; ?>
+    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+    <li><a href="admin_users.php">Manage Users</a></li>
+    <li><a href="product_list.php">Manage Products</a></li>
+    
+<?php endif; ?>
 
     <footer>
         <p>&copy; 2026 Bistro FDI Project - Aplicaciones Web</p>
