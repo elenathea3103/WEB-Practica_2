@@ -207,7 +207,7 @@ $category_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
                                 <div class="stock-info">In Stock: <?= $p['stock'] ?></div>
                             <?php else: ?>
                                 <span class="order-btn out-of-stock-btn">Out of Stock</span>
-                                <div class="stock-info" style="color: #d9534f; font-weight: bold;">Epuizat</div>
+                                <div class="stock-info" style="color: #d9534f; font-weight: bold;">Out of stock</div>
                             <?php endif; ?>
                         </div>
                     <?php endwhile;
