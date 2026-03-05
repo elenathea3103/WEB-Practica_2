@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 02, 2026 at 06:19 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: vm019.db.swarm.test
+-- Generation Time: Mar 05, 2026 at 03:47 PM
+-- Server version: 10.4.28-MariaDB-1:10.4.28+maria~ubu2004
+-- PHP Version: 8.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,6 +60,16 @@ CREATE TABLE `orders` (
   `is_paid` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `daily_number`, `user_id`, `order_date`, `type`, `status`, `total_price`, `is_paid`) VALUES
+(1, 1, 6, '2026-03-03 20:24:06', 'Local', 'New', 16.49, 0),
+(2, 2, 6, '2026-03-03 20:25:45', 'Takeaway', 'New', 14.30, 0),
+(3, 3, 6, '2026-03-03 20:38:01', 'Local', 'New', 45.50, 0),
+(4, 1, 6, '2026-03-04 12:01:36', 'Takeaway', 'New', 7.80, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +83,17 @@ CREATE TABLE `order_items` (
   `quantity` int(11) NOT NULL,
   `price_at_purchase` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price_at_purchase`) VALUES
+(1, 1, 5, 1, 16.49),
+(2, 2, 7, 1, 14.30),
+(3, 3, 7, 3, 14.30),
+(4, 3, 9, 1, 2.60),
+(5, 4, 9, 3, 2.60);
 
 -- --------------------------------------------------------
 
@@ -100,13 +121,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `category_id`, `image`, `base_price`, `vat`, `is_available`, `is_offered`, `stock`, `is_active`, `image_url`) VALUES
-(5, 'Pepperoni', '', 6, NULL, 14.99, 10, 1, 1, 3, 1, 'pepperoni_pizza.jpeg'),
+(5, 'Pepperoni', '', 6, NULL, 14.99, 10, 1, 1, 0, 1, 'pepperoni_pizza.jpeg'),
 (6, 'Americano', '', 5, NULL, 1.00, 4, 1, 1, 7, 1, 'americano.jpeg'),
-(7, 'Margherita', '', 6, NULL, 13.00, 10, 1, 1, 5, 1, 'margherita_pizza.jpg'),
+(7, 'Margherita', '', 6, NULL, 13.00, 10, 1, 1, 1, 1, 'margherita_pizza.jpg'),
 (8, 'Vegetarian', '', 6, NULL, 17.00, 10, 1, 1, 5, 1, 'vegetarian_pizza.jpg'),
-(9, 'Latte', '', 5, NULL, 2.50, 4, 1, 1, 19, 1, 'latte.jpg'),
+(9, 'Latte', '', 5, NULL, 2.50, 4, 1, 1, 15, 1, 'latte.jpg'),
 (10, 'Cappuccino', '', 5, NULL, 2.00, 4, 1, 1, 15, 1, 'cappuccino.png'),
-(11, 'Spaghetti Carbonara', '', 7, NULL, 19.00, 10, 1, 1, 10, 1, 'carbonara.webp'),
+(11, 'Spaghetti Carbonara', '', 7, NULL, 19.00, 10, 1, 1, 9, 1, 'carbonara.webp'),
 (12, 'Pasta Alfredo', '', 7, NULL, 17.90, 10, 1, 1, 9, 1, 'alfredo.jpg');
 
 -- --------------------------------------------------------
@@ -135,7 +156,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `first_name`, `last_
 (3, 'admin1', 'raisadimofte11@gmail.com', '$2y$10$8VTGnos7Kp0B9EYNwWbyXOZkasAkyeQHVzYDNKV7FeIA3nvqlVM66', 'raisa', 'dimofte', 'manager', 'uploads/avatars/1772371948_3.jpeg'),
 (4, 'ana', 'ana_waiter@gmail.com', '$2y$10$mBEe/amHdwryp41QO50dce4/MOqUqa9EvMY2Fsi4T2uEA4LBqJSWS', 'ana', 'smith', 'waiter', 'uploads/avatars/1772371970_4.jpeg'),
 (5, 'maria', 'maria_cook@gmail.com', '$2y$10$5IBUCls8oz4sIjwo03Lo8OoHXiX4zzWgAJVtYO8W1OfPgcfa1.G/2', 'maria', 'gomez', 'cook', 'uploads/avatars/1772372048_5.jpeg'),
-(6, 'elena', 'elena@gmail.com', '$2y$10$EK1f2ml9gyXGwLsi73D3HePVM4WXB0nLJagqcimeFLS84vPYljCdq', 'Elena', 'Thea', 'client', 'uploads/avatars/1772371884_6.jpeg');
+(6, 'elena', 'elena@gmail.com', '$2y$10$EK1f2ml9gyXGwLsi73D3HePVM4WXB0nLJagqcimeFLS84vPYljCdq', 'Elena', 'Thea', 'client', 'uploads/avatars/1772371884_6.jpeg'),
+(8, 'leon', 'leon.romania@gmail.com', '$2y$10$v9Ha/UgSVxv8wzBdEf1bEui2vNg98/FPLlmbIk4Fo9KRgZ2nXARSe', 'Leon', 'romania', 'client', 'assets/avatars/default.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -189,13 +211,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -207,7 +229,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
