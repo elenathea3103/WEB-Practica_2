@@ -12,7 +12,9 @@ if (!isset($_SESSION['login'])) {
 
 $username = $_SESSION['username'];
 $role = $_SESSION['user_role'] ?? 'guest';
-$avatar = $_SESSION['avatar'] ?: 'assets/avatars/default.jpeg';
+
+
+$avatar = $_SESSION['avatar'] ?: RUTA_IMG . 'default.jpeg';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,148 +22,7 @@ $avatar = $_SESSION['avatar'] ?: 'assets/avatars/default.jpeg';
 <head>
     <meta charset="UTF-8">
     <title>Home - Bistro FDI</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 30px;
-            background: #fdf2f4;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .header-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #cca3bb;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatar-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 3px solid #cca3bb;
-            object-fit: cover;
-            margin-right: 20px;
-        }
-
-        .welcome-text h1 {
-            margin: 0;
-            font-size: 28px;
-            color: #333;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #b089a0;
-            font-weight: bold;
-            margin-left: 15px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #d147a3;
-        }
-
-        h2 {
-            color: #333;
-            font-size: 22px;
-            margin-top: 0;
-        }
-
-        .section-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .box {
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-        }
-
-        .box:hover {
-            transform: translateY(-3px);
-        }
-
-        .box h3 {
-            margin-top: 0;
-            color: #444;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 8px;
-        }
-
-        .customer-box {
-            background: #fff;
-            border: 1px solid #f2dae5;
-        }
-
-        .waiter-box {
-            background: #f9f0ff;
-            border-left: 5px solid #d1b3ff;
-        }
-
-        .kitchen-box {
-            background: #fef9fa;
-            border-left: 5px solid #cca3bb;
-        }
-
-        .manager-box {
-            background: #fff5f6;
-            border-left: 5px solid #f2c7ce;
-        }
-
-        .box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .box ul li {
-            margin: 10px 0;
-        }
-
-        .box a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 4px;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .box a:hover {
-            background: #cca3bb;
-            color: white;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #999;
-            font-size: 0.9em;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>style.css">
 </head>
 
 <body>

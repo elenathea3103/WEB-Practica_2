@@ -17,3 +17,10 @@ $dbConfig = [
 
 $app = Applications::getInstance();
 $app->init($dbConfig);
+
+define('RUTA_APP', '/');
+define('RUTA_CSS', RUTA_APP . 'assets/css/');
+define('RUTA_IMG', RUTA_APP . 'assets/img/');
+define('RUTA_JS', RUTA_APP . 'assets/js/');
+
+define('RUTA_VIEWS', RUTA_APP . 'views/');

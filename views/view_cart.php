@@ -1,5 +1,7 @@
 <?php
 require_once 'includes/config.php';
+require_once 'includes/Applications.php';
+
 $app = Applications::getInstance();
 $app->init($dbConfig);
 $conn = $app->getConexionBd();
@@ -14,79 +16,7 @@ $total_final = 0;
 <head>
     <meta charset="UTF-8">
     <title>My Cart - Bistro FDI</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            padding: 30px;
-            background: #fdf2f4;
-        }
-
-        .cart-container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-
-        .total-box {
-            text-align: right;
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-
-        .btn-checkout {
-            background: #cca3bb;
-            color: white;
-        }
-
-        .btn-checkout:hover {
-            background: #b089a0;
-        }
-
-        .remove-link {
-            color: #d9534f;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .remove-link:hover {
-            text-decoration: underline;
-        }
-
-        .empty-cart-link {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.85em;
-        }
-
-        .empty-cart-link:hover {
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= RUTA_CSS ?>style.css">
 </head>
 
 <body>
