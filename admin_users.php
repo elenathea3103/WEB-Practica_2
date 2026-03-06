@@ -3,7 +3,7 @@ require_once 'includes/Applications.php';
 require_once 'includes/DAO/UserDAO.php';
 
 $app = Applications::getInstance();
-$app->init(['host' => 'localhost', 'user' => 'root', 'pass' => '', 'bd' => 'bistro_fdi']);
+$app->init(['host' => 'vm019.db.swarm.test', 'user' => 'root', 'pass' => 'kw4BIhlwVSeRj3LNT_ks', 'bd' => 'bistro_fdi']);
 
 if (!isset($_SESSION['login']) || $_SESSION['user_role'] !== 'manager') {
     header("Location: index.php");

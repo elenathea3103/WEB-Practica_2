@@ -5,7 +5,7 @@ require_once 'includes/DAO/UserDAO.php';
 
 $app = Applications::getInstance();
 // initialize singleton with DB config
-$app->init(['host' => 'localhost', 'user' => 'root', 'pass' => '', 'bd' => 'bistro_fdi']);
+$app->init(['host' => 'vm019.db.swarm.test', 'user' => 'root', 'pass' => 'kw4BIhlwVSeRj3LNT_ks', 'bd' => 'bistro_fdi']);
 
 $username = htmlspecialchars(trim(strip_tags($_POST['username'] ?? '')));
 $password = htmlspecialchars(trim(strip_tags($_POST['password'] ?? '')));
