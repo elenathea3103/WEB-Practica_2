@@ -1,15 +1,15 @@
 <?php
 // db.php
-$host = "localhost";
+$host = "vm019.db.swarm.test";
 $user = "root";
-$pass = "";
+$pass = "kw4BIhlwVSeRj3LNT_ks";
 $db   = "bistro_fdi";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
 
 if ($conn->connect_error) {
-    die("Eroare de conexiune: " . $conn->connect_error);
+    die("Error connecting: " . $conn->connect_error);
 }
 
 
